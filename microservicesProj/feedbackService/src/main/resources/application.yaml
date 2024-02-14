@@ -1,0 +1,20 @@
+server:
+  port: 8091
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+    instance:
+    preferIpAddress: true
+spring:
+  application:
+    name: feedbackService
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mynewdb
+    username: myuser
+    password: mypassword
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+

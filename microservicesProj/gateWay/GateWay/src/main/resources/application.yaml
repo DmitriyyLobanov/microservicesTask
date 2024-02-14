@@ -1,0 +1,25 @@
+
+server:
+  port: 8081
+
+eureka:
+  instance: localhost
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id: productService
+          uri: http://localhost:8080/
+        - predicates:
+            - Path=/products/**
+        - id: basketService
+          uri: http://localhost:8090/
+        - predicates:
+            - Path=/baskets/**
+        - id: feedbackService
+          uri: http://localhost:8091/
+        - predicates:
+            - Path=/feedbacks/**
